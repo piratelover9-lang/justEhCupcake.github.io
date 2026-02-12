@@ -287,10 +287,48 @@ background-position: 0 -70px;
 
 /*END PS4 White Controller Styling*/
 
-/* CASUALCODDAD Tactical Skin */
+/* ================================
+   CASUALCODDAD: Tactical Texture Skin
+   Works for PS5 (ds5) + fallbacks
+   ================================ */
 
-.controller.ps5 .base {
-    background-image: url("https://i.imgur.com/UjXhh6B.jpeg") !important;
-    background-size: cover !important;
-    background-position: center !important;
+/* Ensure controller container can hold an overlay */
+.controller.ds5,
+.controller.ps5,
+.controller.ds4 {
+  position: relative !important;
 }
+
+/* Add texture overlay UNDER all buttons/sticks */
+.controller.ds5::before,
+.controller.ps5::before,
+.controller.ds4::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://i.imgur.com/UjXhh6B.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.95;              /* adjust 0.7–1.0 if needed */
+  z-index: 0;
+  pointer-events: none;
+  mix-blend-mode: normal;     /* change to 'overlay' if you want it to blend */
+}
+
+/* Keep existing SVG/parts above the texture */
+.controller.ds5 > *,
+.controller.ps5 > *,
+.controller.ds4 > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Optional: subtle tactical contrast + ember warmth */
+.controller.ds5,
+.controller.ps5,
+.controller.ds4 {
+  filter: contrast(1.08) saturate(1.05);
+}
+
+
