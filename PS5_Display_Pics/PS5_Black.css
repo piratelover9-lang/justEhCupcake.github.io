@@ -284,4 +284,14 @@ background-position: 0 -70px;
     height: 43px;
 }
 
+/* CASUALCODDAD Tactical Skin */
+
+.controller.ps5 .base {
+    background-image: url("https://i.imgur.com/UjXhh6B.jpeg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+
+
 /*END PS4 White Controller Styling*/
